@@ -52,35 +52,3 @@ jobs:
           echo "Coverage Tests - ${{ steps.coverageComment.outputs.tests }}"
           echo "Coverage Time - ${{ steps.coverageComment.outputs.time }}"
           echo "Not Success Test Info - ${{ steps.coverageComment.outputs.notSuccessTestInfo }}"
-
-  build_and_pytest:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-      - name: Build containers and Run Pytest
-        run: |
-          cd docker
-          docker-compose up -d --build
-          docker-compose exec -T app poetry install
-          docker-compose exec -T app pytest --cov --cov-branch --cov-report=term-missing --junitxml=pytest.xml | tee pytest-coverage.txt
-      - name: Pytest coverage comment
-        uses: MishaKav/pytest-coverage-comment@main
-        with:
-          pytest-coverage-path: pytest-coverage.txt
-          junitxml-path: pytest.xml
-      - name: Check the output coverage
-        run: |
-          echo "Coverage Percantage - ${{ steps.coverageComment.outputs.coverage }}"
-          echo "Coverage Color - ${{ steps.coverageComment.outputs.color }}"
-          echo "Coverage Html - ${{ steps.coverageComment.outputs.coverageHtml }}"
-          echo "Summary Report - ${{ steps.coverageComment.outputs.summaryReport }}"
-
-          echo "Coverage Warnings - ${{ steps.coverageComment.outputs.warnings }}"
-
-          echo "Coverage Errors - ${{ steps.coverageComment.outputs.errors }}"
-          echo "Coverage Failures - ${{ steps.coverageComment.outputs.failures }}"
-          echo "Coverage Skipped - ${{ steps.coverageComment.outputs.skipped }}"
-          echo "Coverage Tests - ${{ steps.coverageComment.outputs.tests }}"
-          echo "Coverage Time - ${{ steps.coverageComment.outputs.time }}"
-          echo "Not Success Test Info - ${{ steps.coverageComment.outputs.notSuccessTestInfo }}"
