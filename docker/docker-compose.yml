@@ -10,6 +10,7 @@ services:
        - ./../.env.local
     volumes:
       - ./../:/workspace
+    tty: true
     expose:
       - "8001"
     depends_on:
