@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{# -- title -- #}
+{% block title %}トップページ{% endblock %}
+
+{# -- main content -- #}
+{% block main %}
+<main>
+    <a href="{% url 'admin:index' %}">admin</a>
+</main>
+{% endblock %}
