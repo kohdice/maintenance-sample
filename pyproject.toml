@@ -1,0 +1,54 @@
+[tool.poetry]
+name = "maintenance"
+version = "0.1.0"
+description = "Master maintenance application built in django."
+authors = ["kohdice <kohdice@gmail.com>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+Django = "^3.2.16"
+uwsgi = "^2.0.21"
+mysqlclient = "2.1.1"
+
+[tool.poetry.group.dev.dependencies]
+flake8 = "^6.0.0"
+flake8-isort = "^6.0.0"
+flake8-bugbear = "^23.1.14"
+flake8-builtins = "^2.1.0"
+flake8-pytest-style = "^1.6.0"
+pep8-naming = "^0.13.3"
+mypy = "^0.991"
+black = "^22.12.0"
+isort = "^5.11.4"
+pytest = "^7.2.1"
+pytest-mock = "^3.10.0"
+pytest-cov = "^4.0.0"
+django-stubs = "^1.14.0"
+pytest-django = "^4.5.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.mypy]
+show_error_context = true
+show_column_numbers = true
+ignore_missing_imports = true
+disallow_untyped_defs = true
+no_implicit_optional = true
+warn_return_any = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+plugins = ["mypy_django_plugin.main"]
+
+[tool.django-stubs]
+django_settings_module = "config.settings"
+
+[tool.black]
+line-length = 79
+
+[tool.isort]
+profile = "black"
+line_length = 79
