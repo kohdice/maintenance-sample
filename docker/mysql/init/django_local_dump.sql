@@ -336,3 +336,7 @@ UNLOCK TABLES;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
 -- Dump completed on 2023-05-14 16:59:43
+
+GRANT ALL PRIVILEGES ON django_local.* TO 'user'@'%';
+
+FLUSH PRIVILEGES;

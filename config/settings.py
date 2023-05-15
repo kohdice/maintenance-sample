@@ -41,6 +41,8 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "maintenance",
+    "django_extensions",
+    "import_export",
 ]
 
 MIDDLEWARE = [
@@ -85,6 +87,10 @@ DATABASES = {
         "PASSWORD": os.environ["DB_PASSWORD"],
         "HOST": os.environ["DB_HOST"],
         "PORT": os.environ["DB_PORT"],
+        "TEST": {
+            "NAME": f"test_{os.environ['DB_DATABASE']}",
+            "MIRROR": "default",
+        },
     }
 }
 

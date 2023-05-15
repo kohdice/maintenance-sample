@@ -11,6 +11,8 @@ python = "^3.10"
 Django = "^3.2.16"
 uwsgi = "^2.0.21"
 mysqlclient = "2.1.1"
+django-extensions = "^3.2.1"
+django-import-export = "^3.2.0"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
@@ -52,3 +54,7 @@ line-length = 79
 [tool.isort]
 profile = "black"
 line_length = 79
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "config.settings"
+python_files = ["test_*.py",]
