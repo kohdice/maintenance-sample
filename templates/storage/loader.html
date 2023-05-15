@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{# -- title -- #}
+{% block title %}Upload file{% endblock %}
+
+{# -- main content -- #}
+{% block main %}
+<main>
+    <a href="{% url 'storage:upload' %}">Upload file</a>
+</main>
+{% endblock %}
