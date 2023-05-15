@@ -13,6 +13,7 @@ uwsgi = "^2.0.21"
 mysqlclient = "2.1.1"
 django-extensions = "^3.2.1"
 django-import-export = "^3.2.0"
+boto3 = "^1.26.133"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"

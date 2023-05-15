@@ -7,8 +7,10 @@
 {# -- main content -- #}
 {% block main %}
 <main>
-    <a href="{% url 'admin:index' %}">admin</a>
+    <a href="{% url 'admin:index' %}">Admin</a>
     <br>
-    <a href="{% url 'maintenance:export' %}">export</a>
+    <a href="{% url 'maintenance:export' %}">Export CSV</a>
+    <br>
+    <a href="{% url 'storage:loader' %}">Upload Media</a>
 </main>
 {% endblock %}
