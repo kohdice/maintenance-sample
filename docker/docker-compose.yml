@@ -41,5 +41,17 @@ services:
     working_dir: /workspace
     depends_on:
       - app
+  minio:
+    image: quay.io/minio/minio:latest
+    environment:
+        MINIO_ROOT_USER: miniolocal
+        MINIO_ROOT_PASSWORD: password
+    command: ['minio', 'server', '/data', '--console-address', ':9001']
+    ports:
+        - "9000:9000"
+        - "9001:9001"
+    volumes:
+      - minio-data:/data
 volumes:
   django-db-store:
+  minio-data:
