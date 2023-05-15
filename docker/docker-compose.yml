@@ -52,6 +52,16 @@ services:
         - "9001:9001"
     volumes:
       - minio-data:/data
+  createbucket:
+    image: quay.io/minio/mc:latest
+    depends_on:
+      - minio
+    entrypoint: >
+      /bin/sh -c "
+      /usr/bin/mc config host add --api s3v4 s3 http://minio:9000 miniolocal password;
+      /usr/bin/mc mb s3/media-bucket/;
+      /usr/bin/mc anonymous set download s3/media-bucket;
+      "
 volumes:
   django-db-store:
   minio-data:
