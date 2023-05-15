@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% load static %}
+
+{# -- title -- #}
+{% block title %}Export CSV{% endblock %}
+
+{# -- main content -- #}
+{% block main %}
+<main>
+    <a href="{% url 'maintenance:csv' %}">Export all Pokémons</a>
+</main>
+{% endblock %}
