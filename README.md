@@ -4,6 +4,6 @@ Sample master maintenance web application using django
 
 ## Sample Superuser
 ```
-Username: root
+Username: admin
 Password: qwer1234
 ```
